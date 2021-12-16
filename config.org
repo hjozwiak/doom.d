@@ -1,0 +1,46 @@
+:DOC-CONFIG:
+# Tangle by default to config.el, which is the most common case
+#+property: header-args:emacs-lisp :tangle config.el
+#+startup:  fold
+:END:
+
+#+title:  Doom Configuration
+#+author:  Hunter Jozwiak
+#+email:  hunter.t.joz@gmail.com
+
+* Explanation
+This is my personal Doom Emacs configuration, useful for those who want to use Doom Emacs and have it work (hopefully) with Emacspeak, which is a screenreader for Emacs.
+
+** Getting Set Up
+In order for things to work properly, you are going to need a few base utilities.
+| Utility    | Description                                                                 |
+| Emacs      | The text editor that serves as the basis for the rest of this configuration |
+| Doom Emacs | The configuration framework for the stubborn Martian Hacker                 |
+| Emacspeak | The screenreader that allows blind folks to use Emacs. |
+| espeak | A speech synthesizer that Emacspeak will use to provide spoken output |
+| tclx | Provides OS primitives for TCL |
+| tcl | A scripting language that Emacspeak will uses |
+
+* Getting the Packages
+** Emacs, TCL and tclx
+These packages should be available in your repository on Linux systems, so installing them should be fairly easy.
+** espeak
+As a matter of personal preference, I prefer to use espeak-ng instead of the classic espeak, though finding one such espeak should be fairly straightforward in your package manager.
+** Doom Emacs
+Getting Doom can be done by running the cloning script or by entering the following into your terminal session.
+#+begin_src shell :tangle ./get-doom.sh :shebang "#!/usr/bin/env bash"
+git clone --recursive https://github.com/hlissner/doom-emacs ~/.emacs.d
+#+end_src
+** Emacspeak
+To install Emacspeak, you need to do a few more things. Start off by getting the repository:
+#+begin_src  shell :tangle ./get-emacspeak.sh :shebang "#!/usr/bin/env bash"
+git clone --recursive https://github.com/tvraman/emacspeak ~/emacspeak
+#+end_src
+Now, cd into the directory and make the Emacspeak pacage itself and the espeak speech server:
+#+begin_src  shell :tangle ./make-emacspeak.sh :shebang "#!/usr/bin/env bash"
+cd ~/emacspeak
+make && make espeak
+#+end_src
+And with that done, we should be ready to rock.
+* Configuration Steps
+** Emacspeak
