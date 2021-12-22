@@ -308,7 +308,7 @@ Now, let's get the Emacspeak software working with Doom. Per the suggestion from
 #+end_src
 Now, we need to ensure that this file is loaded after initialization.
 #+begin_src  emacs-lisp
-(add-hook 'after-init-hook (load "~/.doom.d/esp-prepare.el")
+(add-hook 'after-init-hook (load "~/.doom.d/esp-prepare.el"))
 #+end_src
 ** Remaining configuration
 The last bit of the migration is to copy over the last vestiges of the original configuration I had going before.
