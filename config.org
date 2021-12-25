@@ -5,8 +5,8 @@
 :END:
 
 #+title:  Doom Configuration
-#+author:  Hunter Jozwiak
-#+email:  hunter.t.joz@gmail.com
+#+author: Hunter Jozwiak
+#+email: hunter.t.joz@gmail.com
 
 * Explanation
 This is my personal Doom Emacs configuration, useful for those who want to use Doom Emacs and have it work (hopefully) with Emacspeak, which is a screenreader for Emacs.
@@ -40,6 +40,14 @@ Now, cd into the directory and make the Emacspeak pacage itself and the espeak s
 #+begin_src  shell :tangle ./make-emacspeak.sh :shebang "#!/usr/bin/env bash"
 cd ~/emacspeak
 make && make espeak
+#+end_src
+For ease of updating, here is a script that you can use to update Emacspeak.
+#+begin_src  shell :shebang "/usr/bin/bash" :tangle update-emacspeak.sh
+
+cd ~/emacspeak
+git pull
+make clean
+make -j$(nproc --all)
 #+end_src
 And with that done, we should be ready to rock.
 * Configuration Steps
@@ -332,4 +340,43 @@ Where I want my org things to go.
 I don't really like to hear line numbers as I move, so I will turn them off.
 #+begin_src emacs-lisp
 (setq display-line-numbers-type nil)
+#+end_src
+* Personalization
+** IRC
+I hang out mostly on the Liberachat, Zeronode and Talkabout networks.
+*** Libera.chat
+#+begin_src emacs-lisp
+(after! circe
+  (set-irc-server! "irc.libera.chat"
+    `(:tls t
+      :port 6697
+      :nic "sektor"
+      :sasl-username ,(+pass-get-user "irc/libera.chat")
+      :sasl-password (lambda (&rest _) (+pass-get-secret "irc/libera.chat"))
+      :channels ("#emacs" "#stumpwm" "#pleroma"))))
+#+end_src
+
+*** Talkabout
+#+begin_src emacs-lisp
+(after! circe
+  (set-irc-server! "irc.talkabout.cf"
+    `(:tls t
+      :port 6697
+      :nic "sektor"
+      :sasl-username ,(+pass-get-user "irc/talkabout.cf")
+      :sasl-password (lambda (&rest _) (+pass-get-secret "irc/talkabout.cf"))
+    :channels ("#a11y")))
+)
+#+end_src
+
+*** Zeronode
+#+begin_src emacs-lisp
+(after! circe
+  (set-irc-server! "irc.zeronode.net"
+    `(:tls t
+      :port 6697
+      :nic "sektor"
+      :sasl-username ,(+pass-get-user "irc/zeronode.net")
+      :sasl-password (lambda (&rest _) (+pass-get-secret "irc/zeronode.net"))
+      :channels ("#noagenda"))))
 #+end_src
