@@ -173,9 +173,9 @@
        ;;zig               ; C, but simpler
 
        :email
-       ;;(mu4e +org +gmail)
+       (mu4e +org +gmail)
        ;;notmuch
-       (wanderlust +gmail)
+       ;;(wanderlust +gmail)
 
        :app
        ;;calendar

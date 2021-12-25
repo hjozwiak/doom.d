@@ -229,9 +229,9 @@ Let's start off by getting an init.el file rolling, from which we will enable va
        ;;zig               ; C, but simpler
 
        :email
-       ;;(mu4e +org +gmail)
+       (mu4e +org +gmail)
        ;;notmuch
-       (wanderlust +gmail)
+       ;;(wanderlust +gmail)
 
        :app
        ;;calendar
@@ -245,6 +245,8 @@ Let's start off by getting an init.el file rolling, from which we will enable va
        literate
        (default +bindings +smartparens))
 #+end_src
+
+#+RESULTS:
 
 The next piece of configuration we will need to get out of the way is the pacages.el file, which should look something life this:
 #+begin_src emacs-lisp :tangle packages.el
