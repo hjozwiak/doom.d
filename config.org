@@ -42,7 +42,7 @@ cd ~/emacspeak
 make && make espeak
 #+end_src
 For ease of updating, here is a script that you can use to update Emacspeak.
-#+begin_src  shell :shebang "/usr/bin/bash" :tangle update-emacspeak.sh
+#+begin_src  shell :shebang "#!/usr/bin/bash" :tangle update-emacspeak.sh
 
 cd ~/emacspeak
 git pull
