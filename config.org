@@ -16,13 +16,13 @@ In order for things to work properly, you are going to need a few base utilities
 | Utility    | Description                                                                 |
 | Emacs      | The text editor that serves as the basis for the rest of this configuration |
 | Doom Emacs | The configuration framework for the stubborn Martian Hacker                 |
-| Emacspeak | The screenreader that allows blind folks to use Emacs. |
-| espeak | A speech synthesizer that Emacspeak will use to provide spoken output |
-| tclx | Provides OS primitives for TCL |
-| tcl | A scripting language that Emacspeak will uses |
-
+| Emacspeak  | The screenreader that allows blind folks to use Emacs.                      |
+| espeak     | A speech synthesizer that Emacspeak will use to provide spoken output       |
+| tclx       | Provides OS primitives for TCL                                              |
+| tcl        | A scripting language that Emacspeak will uses                               |
+| pass       | A password storage utility.                                                 |
 * Getting the Packages
-** Emacs, TCL and tclx
+** Emacs, TCL, Pass, and tclx
 These packages should be available in your repository on Linux systems, so installing them should be fairly easy.
 ** espeak
 As a matter of personal preference, I prefer to use espeak-ng instead of the classic espeak, though finding one such espeak should be fairly straightforward in your package manager.
