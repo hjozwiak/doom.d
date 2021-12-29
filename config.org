@@ -305,16 +305,7 @@ And lastly, the configuration file config.el.
 ;; config.el, the configuration file for Doom Emacs.
 ;; Generated from config.org, do not manually edit.
 #+end_src
-** Emacspeak
-Now, let's get the Emacspeak software working with Doom. Per the suggestion from the issue on the Doom Emacs issue tracker, I will split out the Emacspeak loading logic into a separate file.
-#+begin_src emacs-lisp :tangle esp-prepare.el
-(load "~/emacspeak/lisp/emacspeak-setup.el")
-#+end_src
-Now, we need to ensure that this file is loaded after initialization.
-#+begin_src  emacs-lisp
-(add-hook 'after-init-hook (load "~/.doom.d/esp-prepare.el"))
-#+end_src
-** Remaining configuration
+* Remaining configuration
 The last bit of the migration is to copy over the last vestiges of the original configuration I had going before.
 *** Identification Information
 These values are used to identify me across Emacs.
@@ -339,14 +330,17 @@ I don't really like to hear line numbers as I move, so I will turn them off.
 #+end_src
 * Personalization
 ** Emacspeak
-Set up the Emacspeak environment to suit my tastes.
-#+begin_src emacs-lisp
-;; In preparation for the loading of Emacspeak
-;; Set the speech rate, so as to not go insane.
-(after! emacspeak
+In order to get Emacspeak working, we need to create a preparation file into which we will place code we want executed before start the software. In my case, I want my espeak to speak at 820, with no word or character echo.
+#+begin_src emacs-lisp :tangle esp-prepare.el
 (setq espeak-default-speech-rate 820
-      emacspeak-character-echo nil ;; Don't speak characters
-    emacspeak-m-player-program "/usr/bin/mplayer"))
+      emacspeak-character-echo nil
+      emacspeak-word-echo nil)
+(load "~/emacspeak/lisp/emacspeak-setup.el")
+#+end_src
+Sometimes though, we get modules that need post-configuration on account of a variable being undefined, so we will handle those in the configuration file and not in the preparation file.
+Now, we need to ensure that this file is loaded after initialization.
+#+begin_src  emacs-lisp
+(add-hook 'after-init-hook (load "~/.doom.d/esp-prepare.el"))
 #+end_src
 ** IRC
 I hang out mostly on the Liberachat, Zeronode and Talkabout networks.

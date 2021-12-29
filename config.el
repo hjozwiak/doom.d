@@ -1,8 +1,6 @@
 ;; config.el, the configuration file for Doom Emacs.
 ;; Generated from config.org, do not manually edit.
 
-(add-hook 'after-init-hook (load "~/.doom.d/esp-prepare.el"))
-
 (setq user-full-name "Hunter Jozwiak"
 user-mail-address "hunter.t.joz@gmail.com")
 
@@ -12,12 +10,7 @@ user-mail-address "hunter.t.joz@gmail.com")
 
 (setq display-line-numbers-type nil)
 
-;; In preparation for the loading of Emacspeak
-;; Set the speech rate, so as to not go insane.
-(after! emacspeak
-(setq espeak-default-speech-rate 820
-      emacspeak-character-echo nil ;; Don't speak characters
-    emacspeak-m-player-program "/usr/bin/mplayer"))
+(add-hook 'after-init-hook (load "~/.doom.d/esp-prepare.el"))
 
 (after! circe
   (set-irc-server! "irc.libera.chat"
