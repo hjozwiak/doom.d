@@ -328,14 +328,9 @@ I don't really like to hear line numbers as I move, so I will turn them off.
 (setq display-line-numbers-type nil)
 #+end_src
 ** Emacspeak
-In order to get Emacspeak working, we need to create a preparation file into which we will place code we want executed before start the software. In my case, I want my espeak to speak at 820, with no word or character echo.
-#+begin_src emacs-lisp :tangle esp-prepare.el
-(load "~/emacspeak/lisp/emacspeak-setup.el")
-#+end_src
-Sometimes though, we get modules that need post-configuration on account of a variable being undefined, so we will handle those in the configuration file and not in the preparation file, this is where the setq! macro comes in handy.
 First, we need to ensure that this file is loaded after initialization.
 #+begin_src  emacs-lisp
-(add-hook 'after-init-hook (load "~/.doom.d/esp-prepare.el"))
+(add-hook 'after-init-hook (load "~/emacspeak/lisp/emacspeak-setup.el"))
 #+end_src
 #+begin_src emacs-lisp
 (setq! espeak-default-speech-rate 820

@@ -10,7 +10,7 @@ user-mail-address "hunter.t.joz@gmail.com")
 
 (setq display-line-numbers-type nil)
 
-(add-hook 'after-init-hook (load "~/.doom.d/esp-prepare.el"))
+(add-hook 'after-init-hook (load "~/emacspeak/lisp/emacspeak-setup.el"))
 
 (setq! espeak-default-speech-rate 820
        emacspeak-character-echo nil
