@@ -12,6 +12,11 @@ user-mail-address "hunter.t.joz@gmail.com")
 
 (add-hook 'after-init-hook (load "~/.doom.d/esp-prepare.el"))
 
+(setq! espeak-default-speech-rate 820
+       emacspeak-character-echo nil
+       emacspeak-word-echo nil
+       emacspeak-m-player-program "/usr/bin/mplayer")
+
 (after! circe
   (set-irc-server! "irc.libera.chat"
     `(:tls t
