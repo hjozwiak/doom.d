@@ -1,1 +1,1 @@
-load-file "~/emacspeak/lisp/emacspeak-setup.el")
+(load "~/emacspeak/lisp/emacspeak-setup.el")
