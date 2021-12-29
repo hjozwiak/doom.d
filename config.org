@@ -50,8 +50,7 @@ make clean
 make -j$(nproc --all)
 #+end_src
 And with that done, we should be ready to rock.
-* Configuration Steps
-** A Base Doom Configuration
+* The Original Initialization files
 Let's start off by getting an init.el file rolling, from which we will enable various Doom modules.
 #+begin_src emacs-lisp :tangle init.el
 ;;; init.el -*- lexical-binding: t; -*-
@@ -305,44 +304,40 @@ And lastly, the configuration file config.el.
 ;; config.el, the configuration file for Doom Emacs.
 ;; Generated from config.org, do not manually edit.
 #+end_src
-** Emacspeak
-Now, let's get the Emacspeak software working with Doom. Per the suggestion from the issue on the Doom Emacs issue tracker, I will split out the Emacspeak loading logic into a separate file.
-#+begin_src emacs-lisp :tangle esp-prepare.el
-;; In preparation for the loading of Emacspeak
-;; Set the speech rate, so as to not go insane.
-(setq espeak-default-speech-rate 820
-      emacspeak-character-echo nil ;; Don't speak characters
- emac   emacspeak-m-player-program "/usr/bin/mplayer")
-(load-file "~/emacspeak/lisp/emacspeak-setup.el")
-#+end_src
-Now, we need to ensure that this file is loaded after initialization.
-#+begin_src  emacs-lisp
-(add-hook 'after-init-hook (load "~/.doom.d/esp-prepare.el"))
-#+end_src
-** Remaining configuration
-The last bit of the migration is to copy over the last vestiges of the original configuration I had going before.
-*** Identification Information
+* Personalization
+Now we can get into the meat and potatoes of configuring Doom Emacs, which is somewhat of an involved process. Here are some ideas you can use as a base, modifying them to suit your needs.
+** Identification Information
 These values are used to identify me across Emacs.
 #+begin_src  emacs-lisp
 (setq user-full-name "Hunter Jozwiak"
 user-mail-address "hunter.t.joz@gmail.com")
 #+end_src
-*** Visual Things
+** Visual Things
 The visual theme of Doom.
 #+begin_src emacs-lisp
 (setq doom-theme 'doom-one)
 #+end_src
-*** The Org Directory
+** The Org Directory
 Where I want my org things to go.
 #+begin_src emacs-lisp
 (setq org-directory "~/org")
 #+end_src
-*** Line Number Display
+** Line Number Display
 I don't really like to hear line numbers as I move, so I will turn them off.
 #+begin_src emacs-lisp
 (setq display-line-numbers-type nil)
 #+end_src
-* Personalization
+** Emacspeak
+First, we need to ensure that this file is loaded after initialization.
+#+begin_src  emacs-lisp
+(add-hook 'after-init-hook (load "~/emacspeak/lisp/emacspeak-setup.el"))
+#+end_src
+#+begin_src emacs-lisp
+(setq! espeak-default-speech-rate 820
+       emacspeak-character-echo nil
+       emacspeak-word-echo nil
+       emacspeak-m-player-program "/usr/bin/mplayer")
+#+end_src
 ** IRC
 I hang out mostly on the Liberachat, Zeronode and Talkabout networks.
 *** Libera.chat
