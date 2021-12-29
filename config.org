@@ -246,8 +246,6 @@ Let's start off by getting an init.el file rolling, from which we will enable va
        (default +bindings +smartparens))
 #+end_src
 
-#+RESULTS:
-
 The next piece of configuration we will need to get out of the way is the pacages.el file, which should look something life this:
 #+begin_src emacs-lisp :tangle packages.el
 ;; -*- no-byte-compile: t; -*-
@@ -313,7 +311,8 @@ Now, let's get the Emacspeak software working with Doom. Per the suggestion from
 ;; In preparation for the loading of Emacspeak
 ;; Set the speech rate, so as to not go insane.
 (setq espeak-default-speech-rate 820
-)
+      emacspeak-character-echo nil ;; Don't speak characters
+ emac   emacspeak-m-player-program "/usr/bin/mplayer")
 (load-file "~/emacspeak/lisp/emacspeak-setup.el")
 #+end_src
 Now, we need to ensure that this file is loaded after initialization.
