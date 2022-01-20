@@ -1,4 +1,5 @@
 ;; config.el, the configuration file for Doom Emacs.
+;;; config.el -*- lexical-binding: t; -*-
 ;; Generated from config.org, do not manually edit.
 
 (setq user-full-name "Hunter Jozwiak"
