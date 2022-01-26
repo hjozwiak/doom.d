@@ -378,3 +378,13 @@ I hang out mostly on the Liberachat, Zeronode and Talkabout networks.
       :sasl-password (lambda (&rest _) (+pass-get-secret "irc/zeronode.net"))
       :channels ("#noagenda"))))
 #+end_src
+** Email
+We need to use the set-email-account! function to configure mu4e to work with our accounts.
+#+begin_src emacs-lisp
+(set-email-account! "gmail" '((mu4-sent-folder . "gmail/Sent")
+                              (mu4e-drafts-folder . "gmail/Drafts")
+                              (mu4e-trash-folder . "gmail/Trash")
+                              (mu4e-refile-folder . "gmail/All Mail")
+                              (smtpmail-smtp-user "hunter.t.joz@gmail.com")
+                              ))
+#+end_src
