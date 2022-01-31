@@ -46,9 +46,16 @@ user-mail-address "hunter.t.joz@gmail.com")
       :sasl-password (lambda (&rest _) (+pass-get-secret "irc/zeronode.net"))
       :channels ("#noagenda"))))
 
-(set-email-account! "gmail" '((mu4-sent-folder . "gmail/Sent")
-                              (mu4e-drafts-folder . "gmail/Drafts")
-                              (mu4e-trash-folder . "gmail/Trash")
-                              (mu4e-refile-folder . "gmail/All Mail")
+(set-email-account! "gmail" '((mu4e-sent-folder . "/gmail/[Gmail]/Sent Mail")
+                              (mu4e-drafts-folder . "/gmail/Drafts")
+                              (mu4e-trash-folder . "/gmail/Trash")
+                              (mu4e-refile-folder . "/gmail/[Gmail]/All Mail")
                               (smtpmail-smtp-user "hunter.t.joz@gmail.com")
                               ))
+
+(after! mu4e
+  (setq sendmail-program (executable-find "msmtp")
+        send-mail-function #'smtpmail-send-it
+        message-sendmail-f-is-evil t
+        message-sendmail-extra-arguments '("--read-envelope-from")
+        message-send-mail-function #'message-send-mail-with-sendmail))
