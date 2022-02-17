@@ -204,7 +204,7 @@ Let's start off by getting an init.el file rolling, from which we will enable va
        ;;nim               ; python + lisp at the speed of c
        ;;nix               ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
-       org               ; organize your plain life in plain text
+       (org +hugo)                ; organize your plain life in plain text
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional
@@ -397,6 +397,7 @@ To get him to work though, we need to do some things Emacs side.
         send-mail-function #'smtpmail-send-it
         message-sendmail-f-is-evil t
         message-sendmail-extra-arguments '("--read-envelope-from")
-        message-send-mail-function #'message-send-mail-with-sendmail))
+        message-send-mail-function #'message-send-mail-with-sendmail
+  mu4e-headers-full-search t))
 
 #+end_src
