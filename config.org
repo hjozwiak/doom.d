@@ -351,7 +351,7 @@ I hang out mostly on the Liberachat, Zeronode and Talkabout networks.
       :nic "sektor"
       :sasl-username ,(+pass-get-user "irc/libera.chat")
       :sasl-password (lambda (&rest _) (+pass-get-secret "irc/libera.chat"))
-      :channels ("#emacs" "#stumpwm" "#pleroma"))))
+      :channels ("#emacs" "#stumpwm" "#pleroma" "#archlinux"))))
 #+end_src
 
 *** Talkabout

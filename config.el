@@ -25,7 +25,7 @@ user-mail-address "hunter.t.joz@gmail.com")
       :nic "sektor"
       :sasl-username ,(+pass-get-user "irc/libera.chat")
       :sasl-password (lambda (&rest _) (+pass-get-secret "irc/libera.chat"))
-      :channels ("#emacs" "#stumpwm" "#pleroma"))))
+      :channels ("#emacs" "#stumpwm" "#pleroma" "#archlinux"))))
 
 (after! circe
   (set-irc-server! "irc.talkabout.cf"
