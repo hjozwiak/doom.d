@@ -341,7 +341,7 @@ First, we need to ensure that this file is loaded after initialization.
        emacspeak-m-player-program "/usr/bin/mplayer")
 #+end_src
 ** IRC
-I hang out mostly on the Liberachat, Zeronode and Talkabout networks.
+I hang out mostly on the Liberachat, Zeronode and Stormux networks.
 *** Libera.chat
 #+begin_src emacs-lisp :lexical yes
 (after! circe
@@ -354,10 +354,10 @@ I hang out mostly on the Liberachat, Zeronode and Talkabout networks.
       :channels ("#emacs" "#stumpwm" "#pleroma" "#archlinux"))))
 #+end_src
 
-*** Talkabout
+*** Stormux
 #+begin_src emacs-lisp :lexical yes
 (after! circe
-  (set-irc-server! "irc.talkabout.cf"
+  (set-irc-server! "irc.stormux.org"
     `(:tls t
       :port 6697
       :nic "sektor"

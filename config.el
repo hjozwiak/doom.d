@@ -28,7 +28,7 @@ user-mail-address "hunter.t.joz@gmail.com")
       :channels ("#emacs" "#stumpwm" "#pleroma" "#archlinux"))))
 
 (after! circe
-  (set-irc-server! "irc.talkabout.cf"
+  (set-irc-server! "irc.stormux.org"
     `(:tls t
       :port 6697
       :nic "sektor"
